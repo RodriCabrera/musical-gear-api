@@ -9,9 +9,9 @@ POST http://localhost:3000/guitars
 Content-Type: application/json
 
 {
-    "model": "Casino",
-    "brand": "Epiphone",
-    "year": 1969
+    "model": "Coronado",
+    "brandId": 1,
+    "year": 2002
 }
 
 ### UPDATE A GUITAR MODEL:
@@ -19,5 +19,17 @@ PATCH http://localhost:3000/guitars/1
 Content-Type: application/json
 
 {
-    "model": "Telecaster"
+    "model": "Telecaster Deluxe"
+}
+
+### GET ALL BRANDS:
+GET http://localhost:3000/brands
+
+### CREATE A BRAND:
+POST http://localhost:3000/brands
+Content-Type: application/json
+
+{
+    "name": "Gibson",
+    "code": "GIB"
 }

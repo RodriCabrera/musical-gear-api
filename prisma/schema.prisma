@@ -15,8 +15,16 @@ datasource db {
 }
 
 model Guitar {
-  id    Int     @id @default(autoincrement())
-  model String
-  brand String?
-  year  Int?
+  id        Int    @id @default(autoincrement())
+  model     String
+  brandName String
+  brand     Brand  @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: NoAction)
+  year      Int?
+}
+
+model Brand {
+  id     Int      @id @default(autoincrement())
+  name   String   @unique
+  code   String
+  Guitar Guitar[]
 }

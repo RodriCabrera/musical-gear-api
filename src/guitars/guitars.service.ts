@@ -1,6 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Guitar, Prisma } from '@prisma/client';
+import { CreateGuitarDto } from './dto/create-guitar.dto';
 
 @Injectable()
 export class GuitarsService {
@@ -10,7 +11,18 @@ export class GuitarsService {
     return await this.prisma.guitar.findMany();
   }
 
-  async create(createGuitarDto: Prisma.GuitarCreateInput): Promise<Guitar> {
+  // NOTE: The Prisma.GuitarCreateInput does not include the brandId field.
+  async create(createGuitarDto: CreateGuitarDto): Promise<Guitar> {
+    const brandExists = await this.prisma.brand.findUnique({
+      where: { id: createGuitarDto.brandId },
+    });
+
+    if (!brandExists) {
+      throw new BadRequestException(
+        `Brand with id ${createGuitarDto.brandId} does not exist`,
+      );
+    }
+
     return await this.prisma.guitar.create({
       data: createGuitarDto,
     });
@@ -27,13 +39,11 @@ export class GuitarsService {
       where: { id },
       data: updateGuitarDto,
     });
-    //  `This action updates a #${id} guitar`;
   }
 
   remove(id: number) {
     return this.prisma.guitar.delete({
       where: { id },
     });
-    //  `This action removes a #${id} guitar`;
   }
 }
