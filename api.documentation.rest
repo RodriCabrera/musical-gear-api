@@ -1,0 +1,23 @@
+### GET ALL GUITARS:
+GET http://localhost:3000/guitars
+
+### GET ONE GUITAR:
+GET http://localhost:3000/guitars/1
+
+### CREATE A GUITAR:
+POST http://localhost:3000/guitars
+Content-Type: application/json
+
+{
+    "model": "Casino",
+    "brand": "Epiphone",
+    "year": 1969
+}
+
+### UPDATE A GUITAR MODEL:
+PATCH http://localhost:3000/guitars/1
+Content-Type: application/json
+
+{
+    "model": "Telecaster"
+}
