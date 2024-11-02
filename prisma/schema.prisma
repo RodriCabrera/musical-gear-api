@@ -30,7 +30,7 @@ model Pedal {
 model Brand {
   id     Int      @id @default(autoincrement())
   name   String   @unique
-  code   String   @unique
+  code   String   @unique @db.Char(3)
   Guitar Guitar[]
   Pedal  Pedal[]
 }
