@@ -22,6 +22,15 @@ model Guitar {
   year      Int?
 }
 
+model Pedal {
+  id        Int     @id @default(autoincrement())
+  model     String
+  name      String? @unique
+  brandName String
+  brand     Brand   @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: NoAction)
+  year      Int?
+}
+
 model Brand {
   id     Int      @id @default(autoincrement())
   name   String   @unique
