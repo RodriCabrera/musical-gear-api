@@ -13,10 +13,11 @@ POST http://localhost:3000/guitars
 Content-Type: application/json
 
 {
-    "model": "GK Studio",
-    "brandName": "Cordoba",
-    "year": 2002,
-    "name":"La Cordoba"
+    "model": "Jazzmaster",
+    "brandName": "Fender",
+    "year": 1988,
+    "description": "A beautiful guitar",
+    "name":"Kurt Cobain"
 }
 
 ### UPDATE A GUITAR MODEL:
