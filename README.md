@@ -15,7 +15,7 @@ This application uses the following technologies:
 
 - **NestJS**: A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.
 - **Prisma**: A next-generation ORM for type-safe database interactions.
-- **Supabase**: A backend-as-a-service providing a PostgreSQL database and authentication.
+- **Supabase**: A backend-as-a-service providing a PostgreSQL database and authentication. The database is currently hosted as a free service, so it might experience downtime.
 - **TypeScript**: A strongly typed programming language that builds on JavaScript for enhanced tooling and maintainability.
 - **Jest**: A testing framework for writing unit and integration tests.
 - **ESLint & Prettier**: Tools for enforcing code quality and formatting standards.
