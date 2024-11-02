@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Brand, Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
@@ -11,16 +11,8 @@ export class BrandsService {
   }
 
   async create(createBrandDto: Prisma.BrandCreateInput): Promise<Brand> {
-    try {
-      return await this.prisma.brand.create({
-        data: createBrandDto,
-      });
-    } catch (e) {
-      if (e instanceof Prisma.PrismaClientKnownRequestError) {
-        if (e.code === 'P2002') {
-          throw new HttpException('Already exists', HttpStatus.CONFLICT);
-        }
-      }
-    }
+    return this.prisma.brand.create({
+      data: createBrandDto,
+    });
   }
 }
