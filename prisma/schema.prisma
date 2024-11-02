@@ -15,20 +15,22 @@ datasource db {
 }
 
 model Guitar {
-  id        Int    @id @default(autoincrement())
-  model     String
-  brandName String
-  brand     Brand  @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: NoAction)
-  year      Int?
+  id          Int     @id @default(autoincrement())
+  model       String
+  name        String? @unique
+  brandName   String
+  description String?
+  brand       Brand   @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: NoAction)
+  year        Int?
 }
 
 model Pedal {
-  id        Int     @id @default(autoincrement())
-  model     String
-  name      String? @unique
-  brandName String
-  brand     Brand   @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: NoAction)
-  year      Int?
+  id          Int     @id @default(autoincrement())
+  brand       Brand   @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: NoAction)
+  brandName   String
+  description String?
+  model       String
+  year        Int?
 }
 
 model Brand {
