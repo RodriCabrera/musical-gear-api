@@ -24,7 +24,6 @@ This application uses the following technologies:
 
 - **Musical Gear Management**: Add, edit, and delete guitars, pedals, and amplifiers from your collection.
 - **Maintenance Tracking**: Track maintenance tasks and schedules for each instrument.
-- **Repertoire Management**: Organize and track the songs you are able to play.
 
 ### Getting Started
 
