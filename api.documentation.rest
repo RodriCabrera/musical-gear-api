@@ -1,3 +1,7 @@
+###############
+### GUITARS ###
+###############
+
 ### GET ALL GUITARS:
 GET http://localhost:3000/guitars
 
@@ -9,9 +13,10 @@ POST http://localhost:3000/guitars
 Content-Type: application/json
 
 {
-    "model": "Stratocaster",
-    "brandName": "Fender",
-    "year": 2002
+    "model": "GK Studio",
+    "brandName": "Cordoba",
+    "year": 2002,
+    "name":"La Cordoba"
 }
 
 ### UPDATE A GUITAR MODEL:
@@ -22,6 +27,10 @@ Content-Type: application/json
     "model": "Telecaster Deluxe"
 }
 
+###############
+### BRANDS ####
+###############
+
 ### GET ALL BRANDS:
 GET http://localhost:3000/brands
 
@@ -30,6 +39,27 @@ POST http://localhost:3000/brands
 Content-Type: application/json
 
 {
-    "name": "Gibson",
-    "code": "GIB"
+    "name": "Squier",
+    "code": "SQU"
+}
+
+##############
+### PEDALS ###
+##############
+
+### GET ALL PEDALS:
+GET http://localhost:3000/pedals
+
+### GET ONE PEDAL:
+GET http://localhost:3000/pedals/1
+
+### CREATE A PEDAL:
+POST http://localhost:3000/pedals
+Content-Type: application/json
+
+{
+    "model": "DS-1",
+    "name": "Distortion",
+    "brandName": "Boss",
+    "year": 1978
 }
