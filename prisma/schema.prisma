@@ -25,6 +25,7 @@ model Guitar {
 model Brand {
   id     Int      @id @default(autoincrement())
   name   String   @unique
-  code   String
+  code   String   @unique
   Guitar Guitar[]
+  Pedal  Pedal[]
 }

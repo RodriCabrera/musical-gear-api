@@ -9,8 +9,8 @@ POST http://localhost:3000/guitars
 Content-Type: application/json
 
 {
-    "model": "Coronado",
-    "brandId": 1,
+    "model": "Stratocaster",
+    "brandName": "Fender",
     "year": 2002
 }
 

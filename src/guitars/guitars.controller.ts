@@ -9,14 +9,13 @@ import {
 } from '@nestjs/common';
 import { GuitarsService } from './guitars.service';
 import { Prisma } from '@prisma/client';
-import { CreateGuitarDto } from './dto/create-guitar.dto';
 
 @Controller('guitars')
 export class GuitarsController {
   constructor(private readonly guitarsService: GuitarsService) {}
 
   @Post()
-  async create(@Body() createGuitarDto: CreateGuitarDto) {
+  async create(@Body() createGuitarDto: Prisma.GuitarCreateInput) {
     return this.guitarsService.create(createGuitarDto);
   }
 
