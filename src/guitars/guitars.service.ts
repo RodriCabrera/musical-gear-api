@@ -16,7 +16,7 @@ export class GuitarsService {
     });
   }
 
-  async findOne(id: number) {
+  async findOne(id: number): Promise<Guitar | null> {
     return await this.prisma.guitar.findUnique({
       where: { id },
     });

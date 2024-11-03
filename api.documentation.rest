@@ -43,8 +43,8 @@ POST http://localhost:3000/brands
 Content-Type: application/json
 
 {
-    "name": "Squier",
-    "code": "SQU"
+    "name": "Boss",
+    "code": "BOS"
 }
 
 ### UPDATE A BRAND NAME:
@@ -52,8 +52,8 @@ PATCH http://localhost:3000/brands/1
 Content-Type: application/json
 
 {
-    "name": "Epiphone",
-    "code": "EPI"
+    "name": "Headrush",
+    "code": "HEA"
 }
 
 ##############
@@ -64,15 +64,23 @@ Content-Type: application/json
 GET http://localhost:3000/pedals
 
 ### GET ONE PEDAL:
-GET http://localhost:3000/pedals/1
+GET http://localhost:3000/pedals/2
 
 ### CREATE A PEDAL:
 POST http://localhost:3000/pedals
 Content-Type: application/json
 
 {
-    "model": "DS-1",
-    "name": "Distortion",
-    "brandName": "Boss",
-    "year": 1978
+    "model": "MX5",
+    "description": "Multi-effects pedal",
+    "brandName": "Headrush",
+    "year": 2024
+}
+
+### UPDATE A PEDAL MODEL:
+PATCH http://localhost:3000/pedals/654
+Content-Type: application/json
+
+{
+    "model": "MX9"
 }

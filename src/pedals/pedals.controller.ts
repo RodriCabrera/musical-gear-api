@@ -1,12 +1,13 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Patch,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
 } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import { PedalsService } from './pedals.service';
 
 @Controller('pedals')
@@ -14,7 +15,7 @@ export class PedalsController {
   constructor(private readonly pedalsService: PedalsService) {}
 
   @Post()
-  create(@Body() createPedalDto: null) {
+  create(@Body() createPedalDto: Prisma.PedalCreateInput) {
     return this.pedalsService.create(createPedalDto);
   }
 
@@ -29,7 +30,10 @@ export class PedalsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePedalDto: null) {
+  update(
+    @Param('id') id: string,
+    @Body() updatePedalDto: Prisma.PedalUpdateInput,
+  ) {
     return this.pedalsService.update(+id, updatePedalDto);
   }
 

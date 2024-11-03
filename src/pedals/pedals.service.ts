@@ -1,24 +1,35 @@
 import { Injectable } from '@nestjs/common';
+import { Pedal, Prisma } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class PedalsService {
-  create(createPedalDto: null) {
-    return 'This action adds a new pedal';
+  constructor(private prisma: PrismaService) {}
+
+  async findAll(): Promise<Pedal[]> {
+    return await this.prisma.pedal.findMany();
   }
 
-  findAll() {
-    return `This action returns all pedals`;
+  async findOne(id: number): Promise<Pedal | null> {
+    return await this.prisma.pedal.findUniqueOrThrow({ where: { id } });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} pedal`;
+  async create(createPedalDto: Prisma.PedalCreateInput) {
+    return await this.prisma.pedal.create({
+      data: createPedalDto,
+    });
   }
 
-  update(id: number, updatePedalDto: null) {
-    return `This action updates a #${id} pedal`;
+  async update(id: number, updatePedalDto: Prisma.PedalUpdateInput) {
+    return await this.prisma.pedal.update({
+      where: { id },
+      data: updatePedalDto,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} pedal`;
+    return this.prisma.pedal.delete({
+      where: { id },
+    });
   }
 }
