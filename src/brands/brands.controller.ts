@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { BrandsService } from './brands.service';
 
@@ -16,18 +24,21 @@ export class BrandsController {
     return this.brandsService.findAll();
   }
 
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.brandsService.findOne(+id);
-  // }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.brandsService.findOne(+id);
+  }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateBrandDto: UpdateBrandDto) {
-  //   return this.brandsService.update(+id, updateBrandDto);
-  // }
+  @Patch(':id')
+  update(
+    @Param('id') id: string,
+    @Body() updateBrandDto: Prisma.BrandUpdateInput,
+  ) {
+    return this.brandsService.update(+id, updateBrandDto);
+  }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.brandsService.remove(+id);
-  // }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.brandsService.remove(+id);
+  }
 }

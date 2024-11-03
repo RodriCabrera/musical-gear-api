@@ -14,13 +14,13 @@ model Guitar {
   name        String? @unique
   brandName   String
   description String?
-  brand       Brand   @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: NoAction)
+  brand       Brand   @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: Cascade)
   year        Int?
 }
 
 model Pedal {
   id          Int     @id @default(autoincrement())
-  brand       Brand   @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: NoAction)
+  brand       Brand   @relation(fields: [brandName], references: [name], onDelete: NoAction, onUpdate: Cascade)
   brandName   String
   description String?
   model       String
