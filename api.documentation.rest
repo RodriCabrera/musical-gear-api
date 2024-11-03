@@ -2,6 +2,9 @@
 ### GUITARS ###
 ###############
 
+### CHECK PROTECTED!:
+GET http://localhost:3000/auth/protected
+
 ### GET ALL GUITARS:
 GET http://localhost:3000/guitars
 
