@@ -3,16 +3,16 @@
 ###############
 
 ### CHECK PROTECTED!:
-GET http://localhost:3000/auth/protected
+GET http://localhost:8080/auth/protected
 
 ### GET ALL GUITARS:
-GET http://localhost:3000/guitars
+GET http://localhost:8080/guitars
 
 ### GET ONE GUITAR:
-GET http://localhost:3000/guitars/1
+GET http://localhost:8080/guitars/1
 
 ### CREATE A GUITAR:
-POST http://localhost:3000/guitars
+POST http://localhost:8080/guitars
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### UPDATE A GUITAR MODEL:
-PATCH http://localhost:3000/guitars/1
+PATCH http://localhost:8080/guitars/1
 Content-Type: application/json
 
 {
@@ -36,13 +36,13 @@ Content-Type: application/json
 ###############
 
 ### GET ALL BRANDS:
-GET http://localhost:3000/brands
+GET http://localhost:8080/brands
 
 ### GET ONE BRAND:
-GET http://localhost:3000/brands/1
+GET http://localhost:8080/brands/1
 
 ### CREATE A BRAND:
-POST http://localhost:3000/brands
+POST http://localhost:8080/brands
 Content-Type: application/json
 
 {
@@ -51,7 +51,7 @@ Content-Type: application/json
 }
 
 ### UPDATE A BRAND NAME:
-PATCH http://localhost:3000/brands/1
+PATCH http://localhost:8080/brands/1
 Content-Type: application/json
 
 {
@@ -64,13 +64,13 @@ Content-Type: application/json
 ##############
 
 ### GET ALL PEDALS:
-GET http://localhost:3000/pedals
+GET http://localhost:8080/pedals
 
 ### GET ONE PEDAL:
-GET http://localhost:3000/pedals/2
+GET http://localhost:8080/pedals/2
 
 ### CREATE A PEDAL:
-POST http://localhost:3000/pedals
+POST http://localhost:8080/pedals
 Content-Type: application/json
 
 {
@@ -81,9 +81,23 @@ Content-Type: application/json
 }
 
 ### UPDATE A PEDAL MODEL:
-PATCH http://localhost:3000/pedals/654
+PATCH http://localhost:8080/pedals/654
 Content-Type: application/json
 
 {
     "model": "MX9"
+}
+
+### LOGIN:
+POST http://localhost:8080/auth/login
+
+
+### CREATE PROFILE:
+
+POST http://localhost:8080/profiles
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@gmail.com"
 }

@@ -6,10 +6,11 @@ import { BrandsModule } from './brands/brands.module';
 import { PedalsModule } from './pedals/pedals.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthController } from './auth/auth.controller';
+import configuration from './config/configuration';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
     GuitarsModule,
     BrandsModule,
     PedalsModule,
