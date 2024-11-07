@@ -1,18 +1,18 @@
 ###############
-### GUITARS ###
+### INSTRUMENTS ###
 ###############
 
 ### CHECK PROTECTED!:
 GET http://localhost:8080/auth/protected
 
-### GET ALL GUITARS:
-GET http://localhost:8080/guitars
+### GET ALL INSTRUMENTS:
+GET http://localhost:8080/instruments
 
 ### GET ONE GUITAR:
-GET http://localhost:8080/guitars/1
+GET http://localhost:8080/instruments/1
 
 ### CREATE A GUITAR:
-POST http://localhost:8080/guitars
+POST http://localhost:8080/instruments
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### UPDATE A GUITAR MODEL:
-PATCH http://localhost:8080/guitars/1
+PATCH http://localhost:8080/instruments/1
 Content-Type: application/json
 
 {
