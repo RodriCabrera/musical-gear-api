@@ -8,10 +8,10 @@ GET http://localhost:8080/auth/protected
 ### GET ALL INSTRUMENTS:
 GET http://localhost:8080/instruments
 
-### GET ONE GUITAR:
+### GET ONE INSTRUMENT:
 GET http://localhost:8080/instruments/1
 
-### CREATE A GUITAR:
+### CREATE AN INSTRUMENT:
 POST http://localhost:8080/instruments
 Content-Type: application/json
 
@@ -23,7 +23,7 @@ Content-Type: application/json
     "name":"Kurt Cobain"
 }
 
-### UPDATE A GUITAR MODEL:
+### UPDATE A INSTRUMENT MODEL:
 PATCH http://localhost:8080/instruments/1
 Content-Type: application/json
 
@@ -101,3 +101,9 @@ Content-Type: application/json
     "name": "John Doe",
     "email": "john@gmail.com"
 }
+
+
+### GET ALL PROFILES:
+GET http://localhost:8080/profiles
+
+### GET ONE PROFILE:
