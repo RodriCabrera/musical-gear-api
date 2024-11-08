@@ -31,18 +31,6 @@ model Brand {
   @@schema("public")
 }
 
-model Profile {
-  id          String      @id @db.Uuid
-  created_at  DateTime    @default(now()) @db.Timestamptz(6)
-  first_name  String?     @db.VarChar
-  last_name   String?     @db.VarChar
-  instruments Int?
-  users       users       @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  Instrument  Instrument? @relation(fields: [instruments], references: [id], onDelete: NoAction)
-
-  @@schema("public")
-}
-
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model audit_log_entries {
@@ -353,7 +341,7 @@ model users {
   mfa_factors                 mfa_factors[]
   one_time_tokens             one_time_tokens[]
   sessions                    sessions[]
-  Profile                     Profile?
+  Instrument                  Instrument[]
 
   @@index([instance_id])
   @@index([is_anonymous])
@@ -373,14 +361,15 @@ model Band {
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model Instrument {
-  id          Int       @id(map: "Guitar_pkey")
+  id          Int     @id(map: "Guitar_pkey")
   model       String
   brandName   String
   year        Int?
   description String?
-  name        String?   @unique(map: "Guitar_name_key")
-  Brand       Brand     @relation(fields: [brandName], references: [name], onDelete: NoAction, map: "Guitar_brandName_fkey")
-  Profile     Profile[]
+  name        String? @unique(map: "Guitar_name_key")
+  ownerId     String? @db.Uuid
+  Brand       Brand   @relation(fields: [brandName], references: [name], onDelete: NoAction, map: "Guitar_brandName_fkey")
+  users       users?  @relation(fields: [ownerId], references: [id])
 
   @@schema("public")
 }
